@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+</head>
+<body>
+    <script>
+
+        function isPalindrome(number) {
+            let num_string = number.toString();
+            num_string = num_string.split('').reverse().join('');
+            if(num_string === number.toString()){
+                return true;
+            }
+        }
+
+        function isDivisibleBySum(number) {
+            let sum = 0;
+            let num_string = number.toString();
+            for(let i = 0; i < num_string.length; i++){
+                sum += parseInt(num_string[i]);
+            }
+            if(number % sum === 0){
+                return true;
+            }
+        }
+
+         input = prompt("Vnesi 4-cifren broj: ");
+         number = parseInt(input);
+
+        if(input.length !== 4 || isNaN(number)){
+            alert("Ne moze da se proveri vneseniot broj");
+        } else{
+            isPalindromeRes = isPalindrome(number);
+            isDivisibleRes = isDivisibleBySum(number);
+        }
+
+        if(isPalindromeRes && isDivisibleRes){
+            alert("Brojot e palindrom i deliv so zbirot na negovite cifri");
+        }
+        else if(isPalindromeRes){
+            alert("Brojot e palindrom");
+        }
+        else if(isDivisibleRes){
+            alert("Brojot e deliv so zbirot na negovite cifri");
+        }
+        else {
+            alert("Brojot ne e palindrom i ne e deliv so zbirot so negovite cifri");
+        }
+    </script>
+</body>
+</html>

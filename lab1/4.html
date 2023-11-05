@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4</title>
+</head>
+<style>
+   body{
+
+       padding-top: 30px;
+   }
+   input,label{
+       display: block;
+       margin: 5px;
+   }
+
+
+</style>
+
+<body>
+
+<h1>Calculate Body Mass Index (BMI)</h1>
+
+<form action="" method="post">
+<label for="kilograms">Kilograms (kg)</label><input type="text" value="" id="kilograms">
+
+<label for="height">Height (cm)</label><input type="text" value="" id="height">
+
+
+<input type="submit" value="Calculate" onclick="calculateBMI()" >
+
+</form>
+
+
+<script>
+
+    function calculateBMI(){
+        let height = document.getElementById('height').value;
+        let weight = document.getElementById('kilograms').value;
+
+        let heightInM = height / 100;
+
+        let BMI = weight / Math.pow(heightInM,2);
+        BMI = BMI.toFixed(1);
+        alert(BMI);
+
+    }
+
+</script>
+
+</body>
+</html>

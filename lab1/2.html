@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+</head>
+<body>
+
+<script>
+
+    let mobileNumber = prompt("Vnesi telefonski broj: ");
+    let formattedNUmber;
+    if(mobileNumber.length === 8) {
+        formattedNUmber = '0' + mobileNumber.slice(0, 2) + '/' + mobileNumber.slice(2, 5) + '-' + mobileNumber.slice(5);
+        console.log(formattedNUmber);
+        let operator = '0' + mobileNumber.slice(0,2);
+        if (operator === '070' || operator === '071' || operator === '072'){
+            console.log("T-mobile");
+        }
+        if (operator === '075' || operator === '076'){
+            console.log("One");
+        }
+        if (operator === '077' || operator === '078'){
+            console.log("Vip");
+        }
+
+    } else {
+        console.log("Nevaliden telefonski broj")
+    }
+
+</script>
+
+</body>
+</html>

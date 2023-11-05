@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+</head>
+<body>
+
+<script>
+
+    let string1 = prompt("Vnesi prv string");
+    let string2 = prompt("Vnesi vtor string");
+    let string3 = prompt("Vnesi tret string");
+
+    let words1 = string1.split(' ');
+    let words2 = string2.split(' ');
+    let words3 = string3.split(' ');
+
+    function findLongestWord(words) {
+        let longestWord = '';
+
+        for (let i = 0; i < words.length; i++) {
+            if (words[i].length > longestWord.length){
+                longestWord = words[i];
+            }
+        }
+        return longestWord;
+    }
+
+    let longestWord1 = findLongestWord(words1);
+    let longestWord2 = findLongestWord(words2);
+    let longestWord3 = findLongestWord(words3);
+
+    let longestWord = findLongestWord([longestWord1, longestWord2, longestWord3]);
+
+
+    alert(longestWord);
+
+</script>
+
+</body>
+</html>
