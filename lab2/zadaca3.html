@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About me</title>
+</head>
+
+<body>
+
+<h1>About Me</h1>
+
+<ul>
+    <li>Name: <span id="name"></span></li>
+    <li>Index: <span id="index"></span></li>
+    <li>Hometown: <span id="hometown"></span></li>
+</ul>
+
+<script>
+    document.body.style.fontFamily = "Arial";
+
+    document.getElementById("name").innerHTML = "Stefan Tagarski";
+    document.getElementById("index").innerHTML = "221184";
+    document.getElementById("hometown").innerHTML = "Strumica";
+
+    let items = document.getElementsByTagName('li');
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.background = "red";
+    }
+
+
+</script>
+
+</body>
+</html>

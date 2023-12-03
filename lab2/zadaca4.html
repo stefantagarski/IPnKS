@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zadaca4</title>
+</head>
+
+<style>
+    div {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+
+    input {
+        width: 50px;
+    }
+
+    button {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<script>
+
+
+    function add() {
+        let firstReal = parseFloat(document.getElementById("firstReal").value);
+        let firstImag = parseFloat(document.getElementById("firstImag").value);
+        let secondReal = parseFloat(document.getElementById("secondReal").value);
+        let secondImag = parseFloat(document.getElementById("secondImag").value);
+
+        if (!firstImag || !secondReal || !firstReal || !secondImag) {
+            alert("Invalid input, please insert all values as numbers!");
+        }
+
+        document.getElementById("resultReal").value = firstReal + secondReal;
+        document.getElementById("resultImag").value = firstImag + secondImag;
+
+
+    }
+
+</script>
+
+<body>
+
+<h1>Zadaca 4</h1>
+<h2>Sum of Real and Imaginary numbers</h2>
+
+
+<div>
+
+    <label for="firstReal"></label><input type="text" id="firstReal">
+    <label for="firstImag"></label><input type="text" id="firstImag"> <em>i</em>
+</div>
+<div>
+    <label for="secondReal"></label><input type="text" id="secondReal">
+    <label for="secondImag"></label><input type="text" id="secondImag"> <em>i</em>
+
+</div>
+<button onclick="add()">Add</button>
+
+<div>
+    <label for="resultReal"></label><input type="text" id="resultReal">
+    <label for="resultImag"></label><input type="text" id="resultImag"> <em>i</em>
+</div>
+
+
+</body>
+</html>

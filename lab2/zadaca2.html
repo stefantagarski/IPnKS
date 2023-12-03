@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zadaca2</title>
+</head>
+
+<style>
+    body {
+        align-content: center;
+        align-items: center;
+    }
+
+    img {
+        max-width: 100%;
+        display: none;
+    }
+    button {
+        margin: 10px;
+    }
+</style>
+
+<body>
+
+<button id="button">Show random Image</button>
+<img id="random" src=""  alt="Random Image">
+
+
+<script>
+    let images = [
+       // 'http://data.whicdn.com/images/15145864/large.jpg',
+       // 'https://cdn0.vox-cdn.com/uploads/chorus_image/image/48151611/8559004265_4b81d299ce.0.0.jpg',
+            'https://www.rollingstone.com/wp-content/uploads/2021/12/KyrieIrving.jpg?w=1581&h=1054&crop=1',
+        'https://farm5.staticflickr.com/4060/4567292488_5d3f4b05f6_z.jpg',
+        'https://i.pinimg.com/originals/8b/b9/4c/8bb94c1d4159e7b27d6c872353cb3bc7.png'
+    ];
+    //forbidden access na 2 sliki
+
+    let button = document.getElementById('button');
+    let random = document.getElementById('random');
+
+
+    button.addEventListener('click',function() {
+
+        let randomIndex = Math.floor(Math.random() * images.length) ;
+
+        random.src = images[randomIndex];
+        random.style.display = 'block';
+
+    });
+
+</script>
+
+
+</body>
+</html>
