@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca1</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        div {
+            margin: 10px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        input {
+            width: 200px;
+        }
+
+        button {
+            width: 100px;
+        }
+
+        tr,td,th {
+            border: 1px solid black;
+        }
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+
+    <script>
+        function addStudent() {
+            var name = document.getElementById("name").value;
+            var surname = document.getElementById("surname").value;
+            var index = document.getElementById("index").value;
+            var subject = document.getElementById("subject").value;
+            var grade = document.getElementById("grade").value;
+
+            var student = {
+                name: name,
+                surname: surname,
+                index: index,
+                subject: subject,
+                grade: grade
+            };
+
+            data.push(student);
+
+            document.getElementById("name").value = "";
+            document.getElementById("surname").value = "";
+            document.getElementById("index").value = "";
+            document.getElementById("subject").value = "";
+            document.getElementById("grade").value = "";
+
+            displayTable();
+        }
+
+        function displayTable() {
+            var table = document.getElementById("table");
+
+            table.innerHTML = "<tr><th>Име</th><th>Презиме</th><th>Индекс</th><th>Предмет</th><th>Оцена</th></tr>";
+
+            for (var i = 0; i < data.length; i++) {
+                var row = table.insertRow(-1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+
+                cell1.innerHTML = data[i].name;
+                cell2.innerHTML = data[i].surname;
+                cell3.innerHTML = data[i].index;
+                cell4.innerHTML = data[i].subject;
+                cell5.innerHTML = data[i].grade;
+            }
+        }
+
+        var data = [];
+    </script>
+</head>
+
+<body>
+<h1>Форма за внесување оцени</h1>
+
+<div>
+    <label for="name">Име:</label><input id="name" type="text">
+</div>
+
+<div>
+    <label for="surname">Презиме:</label>
+    <input id="surname" type="text">
+</div>
+
+<div>
+    <label for="index">Индекс:</label>
+    <input id="index" type="text">
+</div>
+
+<div>
+    <label for="subject">Предмет:</label>
+    <input id="subject" type="text">
+</div>
+
+<div>
+    <label for="grade">Оцена:</label>
+    <select id="grade">
+        <option>5 (пет)</option>
+        <option>6 (шест)</option>
+        <option>7 (седум)</option>
+        <option>8 (осум)</option>
+        <option>9 (девет)</option>
+        <option>10 (десет)</option>
+    </select>
+</div>
+
+<div>
+    <button onclick="addStudent()">Внеси</button>
+</div>
+
+<table id='table'>
+    <tr>
+        <th>Име</th>
+        <th>Презиме</th>
+        <th>Индекс</th>
+        <th>Предмет</th>
+        <th>Оцена</th>
+    </tr>
+</table>
+</body>
+
+</html>

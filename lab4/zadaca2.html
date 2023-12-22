@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca2</title>
+</head>
+
+<style>
+    input[type="radio"],
+    input[type="checkbox"]{
+        display: inline;
+        margin-right: 10px;
+    }
+</style>
+<body>
+<div>
+    <label for="items">Items:</label><input id="items" type="text">
+</div>
+
+<div>
+    <label for="type">Type</label>
+    <select id="type">
+        <option>Radio button</option>
+        <option>Checkbox</option>
+    </select>
+</div>
+
+<div>
+    <button id="button" onclick="displayOptions()">Прикажи</button>
+</div>
+
+<div id="div"></div>
+
+<script>
+    function displayOptions() {
+        var itemsInput = document.getElementById("items");
+        var typeSelect = document.getElementById("type");
+        var displayDiv = document.getElementById("div");
+
+        var items = itemsInput.value.split(',').map(item => item.trim());
+        var type = typeSelect.value;
+
+        displayDiv.innerHTML = "";
+
+        for (var i = 0; i < items.length; i++) {
+            var inputElement = document.createElement("input");
+            inputElement.type = type === "Radio button" ? "radio" : "checkbox";
+            inputElement.name = "option"; // All radio buttons should have the same name
+            inputElement.value = items[i];
+            inputElement.id = "option" + i;
+
+            var labelElement = document.createElement("label");
+            labelElement.setAttribute("for", "option" + i);
+            labelElement.textContent = items[i];
+
+            displayDiv.appendChild(inputElement);
+            displayDiv.appendChild(labelElement);
+            displayDiv.appendChild(document.createElement("br"));
+        }
+    }
+</script>
+
+</body>
+</html>

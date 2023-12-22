@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca3</title>
+    <style>
+    </style>
+</head>
+
+<body>
+
+<h2>Промени Позадина</h2>
+
+<label>
+    <input type="radio" name="option" value="color" id="colorRadio"> Color
+</label>
+<label>
+    <input type="radio" name="option" value="image" id="imageRadio"> Image
+</label>
+<br>
+<label for="value">Value:</label>
+<input type="text" id="value" name="value" required>
+<br>
+<button type="button" onclick="changeBackground()">Промени</button>
+
+<script>
+    function changeBackground() {
+        const colorRadio = document.getElementById('colorRadio');
+        const imageRadio = document.getElementById('imageRadio');
+        const value = document.getElementById('value');
+
+        if (colorRadio.checked) {
+            document.body.style.backgroundColor = value.value;
+        } else if (imageRadio.checked) {
+            document.body.style.backgroundImage = `url('${value.value}')`;
+        }
+    }
+</script>
+
+</body>
+
+</html>
