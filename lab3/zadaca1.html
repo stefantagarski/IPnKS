@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca1</title>
+</head>
+<body>
+
+<script>
+    let list = [1,2,3,4,5,5,6,7,7,7,8,8,9];
+    let res = removeDuplicates(list);
+    console.log(res);
+
+    function removeDuplicates(list) {
+        let set = new Set(list);
+        return Array.from(set);
+    }
+
+</script>
+
+</body>
+</html>
