@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script>
+
+        let number;
+        let attempts;
+
+        function game() {
+            document.getElementById('guessButton').disabled = false;
+            number = random();
+            attempts = 0;
+            document.getElementById('obid').innerText = 'Обиди 0';
+            document.getElementById('prikaz').innerHTML = '';
+
+        }
+
+        function random() {
+            return Math.floor(Math.random() * 9000 + 1000).toString();
+        }
+
+        function check() {
+            const num = document.getElementById('guess').value;
+
+            if (isNaN(num) || (num.length !== 4)) {
+                alert("Invalid input, please try again");
+                return;
+            }
+
+            if (number == num) {
+                document.getElementById('guessButton').disabled = true;
+                addMessage('ПОГОДОК!!!');
+            } else {
+                let normalMatches = 0;
+                let inPlaceMatches = 0;
+
+                for (let i = 0; i < 4; i++) {
+                    if (number[i] === num[i]) {
+                        inPlaceMatches++;
+                    }
+                }
+
+                let temp = number;
+                for (const c of num) {
+                    if (temp.includes(c)) {
+                        normalMatches++;
+                        temp = temp.replace(c, '');
+                    }
+                }
+
+                const message = `Има ${Math.max(normalMatches - inPlaceMatches, 0)}, на место ${inPlaceMatches} ${num}`;
+                addMessage(message);
+
+                attempts++;
+                document.getElementById('obid').innerText = `Обиди ${attempts}`;
+
+                if (attempts === 10) {
+                    document.getElementById('guessButton').disabled = true;
+                    if (num !== number) {
+                        addMessage(`Не успеавте да погодите од 10 обиди. Бројот е ${number}`);
+                    }
+                }
+            }
+        }
+
+        function addMessage(message) {
+            const messageElement = document.createElement('p');
+            messageElement.appendChild(document.createTextNode(message));
+            document.getElementById('prikaz').appendChild(messageElement);
+        }
+
+
+    </script>
+</head>
+
+<body>
+<div>
+    <div style="text-align:right; float:left">
+        <label id="obid">Обиди 0</label>
+        <p>Погодок: <input id="guess" style="width:150px" /></p>
+        <button id="guessButton" onclick="check()">Погоди</button>
+        <button onclick="game()">Од почеток</button>
+    </div>
+</div>
+<br />
+<div id="prikaz" style="clear: both">
+</div>
+</body>
+
+</html>
