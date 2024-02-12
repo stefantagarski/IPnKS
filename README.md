@@ -1,2 +1,2 @@
 # IPnKS
-Internet client-side programming solved auditory, laboratory, and exam tasks @ FCSE - Skopje
+Internet client-side programming solved laboratory tasks @ FCSE - Skopje
